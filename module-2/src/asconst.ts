@@ -14,11 +14,15 @@ const UserRoles = {
 /*
 1.typeof operator
 2. keyof operator
-const
+
+
+keyof typeof UserRoles
+
+'Admin' | 'Editor' | 'Viewer'
+
 */
 
-
-const canEdit = (role: UserRoles) => {
+const canEdit = (role: (typeof UserRoles)[keyof typeof UserRoles]) => {
   if (role === UserRoles.Admin || role === UserRoles.Editor) {
     return true;
   } else {
